@@ -14,7 +14,9 @@ console.log('MONGODB_URI:', process.env.MONGODB_URI); // Log the URI to check if
 connectDB();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://event-buzz-gamma.vercel.app/', // Update with your frontend URL
+}));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
